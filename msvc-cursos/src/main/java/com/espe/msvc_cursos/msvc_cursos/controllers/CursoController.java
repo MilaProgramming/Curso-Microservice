@@ -17,9 +17,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:4200", "http://localhost:9876"})
+@CrossOrigin(origins = { "http://localhost:3000", "http://localhost:4200", "http://localhost:9876",
+        "http://angular-app:80" })
 public class CursoController {
 
     @Autowired
@@ -27,7 +27,7 @@ public class CursoController {
 
     private static ResponseEntity<Map<String, String>> validar(BindingResult result) {
         Map<String, String> errores = new HashMap<>();
-        result.getFieldErrors().forEach(err ->{
+        result.getFieldErrors().forEach(err -> {
             errores.put(err.getField(), "El campo " + err.getField() + " " + err.getDefaultMessage());
         });
         return ResponseEntity.badRequest().body(errores);
@@ -48,7 +48,7 @@ public class CursoController {
     }
 
     @PostMapping("/cursos")
-    public ResponseEntity<?> guardar(@Valid  @RequestBody Curso curso, BindingResult result) {
+    public ResponseEntity<?> guardar(@Valid @RequestBody Curso curso, BindingResult result) {
 
         if (result.hasErrors()) {
             return validar(result);
@@ -115,6 +115,5 @@ public class CursoController {
         }
 
     }
-
 
 }
