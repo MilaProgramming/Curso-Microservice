@@ -1,6 +1,5 @@
 package com.espe.msvc_cursos.msvc_cursos.controllers;
 
-import com.espe.msvc_cursos.msvc_cursos.models.entity.CursoUsuario;
 import com.espe.msvc_cursos.msvc_cursos.models.entity.Usuario;
 import feign.FeignException;
 import jakarta.validation.Valid;
