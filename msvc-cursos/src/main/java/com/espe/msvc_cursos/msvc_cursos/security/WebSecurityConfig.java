@@ -22,8 +22,8 @@ public class WebSecurityConfig {
         http.authorizeHttpRequests( auth -> {
             auth.requestMatchers(HttpMethod.GET, "/cursos").hasAnyRole(ADMIN,USER);
             auth.requestMatchers(HttpMethod.GET, "/cursos/**").hasAnyRole(ADMIN,USER);
-            auth.requestMatchers(HttpMethod.POST, "cursos/*/agregar-usuario").hasAnyRole(ADMIN, USER);
-            auth.requestMatchers(HttpMethod.POST, "cursos/*/eliminar-usuario/**").hasAnyRole(ADMIN, USER);
+            auth.requestMatchers(HttpMethod.PUT, "cursos/*/agregar-usuario").hasAnyRole(ADMIN, USER);
+            auth.requestMatchers(HttpMethod.PUT, "cursos/*/eliminar-usuario/**").hasAnyRole(ADMIN, USER);
             auth.anyRequest().hasRole(ADMIN);
         });
 
